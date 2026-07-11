@@ -133,7 +133,7 @@
     {
       "type": "aws:cdk:creationStack",
       "data": [
-        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-Jyatmv/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
+        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-R2n29c/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
         "Array.map (:)",
         "...aws-cdk-lib, jsii runtime..."
       ]
@@ -147,9 +147,22 @@
     {
       "type": "aws:cdk:creationStack",
       "data": [
-        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-Jyatmv/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
+        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-R2n29c/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
         "Array.map (:)",
         "...aws-cdk-lib, jsii runtime..."
+      ]
+    }
+  ],
+  "/PlantDexStack/SimilarPlantsFunction/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SimilarPlantsFunctionServiceRoleDefaultPolicyE6124CAF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, jsii runtime...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
       ]
     }
   ],
@@ -161,7 +174,7 @@
     {
       "type": "aws:cdk:creationStack",
       "data": [
-        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-Jyatmv/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
+        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-R2n29c/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
         "Array.map (:)",
         "...aws-cdk-lib, jsii runtime..."
       ]

@@ -34,6 +34,52 @@
     "aws:cdk:path": "PlantDexStack/SimilarPlantsFunction/ServiceRole/Resource"
    }
   },
+  "SimilarPlantsFunctionServiceRoleDefaultPolicyE6124CAF": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":secretsmanager:",
+          {
+           "Ref": "AWS::Region"
+          },
+          ":",
+          {
+           "Ref": "AWS::AccountId"
+          },
+          ":secret:plantdex/trefle-token-??????"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "SimilarPlantsFunctionServiceRoleDefaultPolicyE6124CAF",
+    "Roles": [
+     {
+      "Ref": "SimilarPlantsFunctionServiceRole8E71C360"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PlantDexStack/SimilarPlantsFunction/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
   "SimilarPlantsFunction5664DB95": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
@@ -41,11 +87,11 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "ed69ae00b80ca6a39f4ffed4c2b6cef1d719387f327c3920bba2c7dff24f2afc.zip"
+     "S3Key": "f1fff24ce1668bdba9677ab136a928690eadd04a0c539e7b1c1a1493e07b2cb4.zip"
     },
     "Environment": {
      "Variables": {
-      "TREFLE_TOKEN": "usr-Jz1oZN0oIrNrNitvdRtgTijQzL2jt6TRQxiIA9wetvY"
+      "TREFLE_SECRET_NAME": "plantdex/trefle-token"
      }
     },
     "Handler": "lambda_handlers.similar_plants_handler.lambda_handler",
@@ -60,11 +106,12 @@
     "Timeout": 30
    },
    "DependsOn": [
+    "SimilarPlantsFunctionServiceRoleDefaultPolicyE6124CAF",
     "SimilarPlantsFunctionServiceRole8E71C360"
    ],
    "Metadata": {
     "aws:cdk:path": "PlantDexStack/SimilarPlantsFunction/Resource",
-    "aws:asset:path": "asset.ed69ae00b80ca6a39f4ffed4c2b6cef1d719387f327c3920bba2c7dff24f2afc",
+    "aws:asset:path": "asset.f1fff24ce1668bdba9677ab136a928690eadd04a0c539e7b1c1a1493e07b2cb4",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -190,7 +237,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/12O3W6CQBCFn8X7ZVrBeK8mpr0qwQcwI644AruEmS0xm333ZiAmplffOWd+c8i3a/hc4cRZfW2zji4QT4J1a3Dic+ywv1wR4jG4Wsg7c7i5d13asSdm8i4Zwh5i5TurBWUyXJyR2QrDTmG4gH2oWyt7ZGtwoAbFTvj8zSF+iQy7gXRYofYk2MzbFqFR5YMs6tuJbUZ8ffLPzn0pmfmujpNrNP8JMgRJpnzK3buPAtY5bFYPJsrG4IR6C9XCP5GbFT8bAQAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/11O226DMAz9lr4Hb4Wq7+2kaXsaoh9QuanHXCBB2BlCKP8+JWjStKdz8Tm2SyiPe3je4SyFvXdFzzdYL4q2Mw2JD5Mlg7Nc1x6H2x1hfQ3OKntnXj7dX17TNLAIexcN4wBr43tKg4y179kuOZdZNFJdUYRU4JTASAXnYDvSMwoZHLlFpRmX7xLWN9XxNHKqJ0jyotjm9RtJVuODbuzdKbUT/r72T+ZcjCbfTXV2bfI/go5Bo6kX/fLuqYJ9CYfdQ5iLKTjlgaDZ8Ad/XRy6NQEAAA=="
    },
    "Metadata": {
     "aws:cdk:path": "PlantDexStack/CDKMetadata/Default"
