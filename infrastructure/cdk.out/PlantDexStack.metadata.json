@@ -21,6 +21,19 @@
       ]
     }
   ],
+  "/PlantDexStack/PlantDexCacheTableName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantDexCacheTableName"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...jsii runtime, node internals...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
   "/PlantDexStack/BootstrapVersion": [
     {
       "type": "aws:cdk:logicalId",
@@ -43,6 +56,19 @@
       "type": "aws:cdk:creationStack",
       "data": [
         "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/PlantDexStack/PlantDexCacheTable/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantDexCacheTableC12F6F1C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, jsii runtime, node internals...",
         "(no user code in 10 frames, use --stack-trace-limit to capture more)"
       ]
     }
@@ -133,7 +159,7 @@
     {
       "type": "aws:cdk:creationStack",
       "data": [
-        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-Jyatmv/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
+        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-afzKRX/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
         "Array.map (:)",
         "...aws-cdk-lib, jsii runtime..."
       ]
@@ -147,9 +173,78 @@
     {
       "type": "aws:cdk:creationStack",
       "data": [
-        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-Jyatmv/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
+        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-afzKRX/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
         "Array.map (:)",
         "...aws-cdk-lib, jsii runtime..."
+      ]
+    }
+  ],
+  "/PlantDexStack/PlantDexHttpApi/GET--search/SimilarPlantsIntegration-Permission": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantDexHttpApiGETsearchSimilarPlantsIntegrationPermission679B06EB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-afzKRX/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
+        "Array.map (:)",
+        "...aws-cdk-lib, jsii runtime..."
+      ]
+    }
+  ],
+  "/PlantDexStack/PlantDexHttpApi/GET--search/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantDexHttpApiGETsearch35AB8861"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-afzKRX/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
+        "Array.map (:)",
+        "...aws-cdk-lib, jsii runtime..."
+      ]
+    }
+  ],
+  "/PlantDexStack/PlantDexHttpApi/GET--plants--{slug}/SimilarPlantsIntegration-Permission": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantDexHttpApiGETplantsslugSimilarPlantsIntegrationPermissionD581326D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-afzKRX/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
+        "Array.map (:)",
+        "...aws-cdk-lib, jsii runtime..."
+      ]
+    }
+  ],
+  "/PlantDexStack/PlantDexHttpApi/GET--plants--{slug}/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantDexHttpApiGETplantsslugB62AB872"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-afzKRX/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
+        "Array.map (:)",
+        "...aws-cdk-lib, jsii runtime..."
+      ]
+    }
+  ],
+  "/PlantDexStack/SimilarPlantsFunction/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SimilarPlantsFunctionServiceRoleDefaultPolicyE6124CAF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, jsii runtime...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
       ]
     }
   ],
@@ -161,7 +256,7 @@
     {
       "type": "aws:cdk:creationStack",
       "data": [
-        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-Jyatmv/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
+        ".../var/folders/r8/q05ww6td64s70f879mjv3v540000gn/T/jsii-kernel-afzKRX/node_modules/aws-cdk-lib/aws-apigatewayv2/lib/http/api.js:1:96 in aws-cdk-lib...",
         "Array.map (:)",
         "...aws-cdk-lib, jsii runtime..."
       ]
