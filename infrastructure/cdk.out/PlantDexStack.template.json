@@ -1,5 +1,32 @@
 {
  "Resources": {
+  "PlantDexCacheTableC12F6F1C": {
+   "Type": "AWS::DynamoDB::Table",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "cache_key",
+      "AttributeType": "S"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "KeySchema": [
+     {
+      "AttributeName": "cache_key",
+      "KeyType": "HASH"
+     }
+    ],
+    "TimeToLiveSpecification": {
+     "AttributeName": "expires_at",
+     "Enabled": true
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PlantDexStack/PlantDexCacheTable/Resource"
+   }
+  },
   "SimilarPlantsFunctionServiceRole8E71C360": {
    "Type": "AWS::IAM::Role",
    "Properties": {
@@ -65,6 +92,44 @@
          ]
         ]
        }
+      },
+      {
+       "Action": [
+        "dynamodb:BatchGetItem",
+        "dynamodb:Query",
+        "dynamodb:GetItem",
+        "dynamodb:Scan",
+        "dynamodb:ConditionCheckItem",
+        "dynamodb:BatchWriteItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "PlantDexCacheTableC12F6F1C",
+          "Arn"
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "dynamodb:GetRecords",
+        "dynamodb:GetShardIterator"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "PlantDexCacheTableC12F6F1C",
+          "Arn"
+         ]
+        }
+       ]
       }
      ],
      "Version": "2012-10-17"
@@ -87,11 +152,15 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "f1fff24ce1668bdba9677ab136a928690eadd04a0c539e7b1c1a1493e07b2cb4.zip"
+     "S3Key": "6b7704aaccd38e8d5d646830c4a3e71bd4afcdd88c780ac122294e3d865de09b.zip"
     },
     "Environment": {
      "Variables": {
-      "TREFLE_SECRET_NAME": "plantdex/trefle-token"
+      "TREFLE_SECRET_NAME": "plantdex/trefle-token",
+      "CACHE_TABLE_NAME": {
+       "Ref": "PlantDexCacheTableC12F6F1C"
+      },
+      "CACHE_TTL_SECONDS": "86400"
      }
     },
     "Handler": "lambda_handlers.similar_plants_handler.lambda_handler",
@@ -111,7 +180,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "PlantDexStack/SimilarPlantsFunction/Resource",
-    "aws:asset:path": "asset.f1fff24ce1668bdba9677ab136a928690eadd04a0c539e7b1c1a1493e07b2cb4",
+    "aws:asset:path": "asset.6b7704aaccd38e8d5d646830c4a3e71bd4afcdd88c780ac122294e3d865de09b",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -237,7 +306,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/11O226DMAz9lr4Hb4Wq7+2kaXsaoh9QuanHXCBB2BlCKP8+JWjStKdz8Tm2SyiPe3je4SyFvXdFzzdYL4q2Mw2JD5Mlg7Nc1x6H2x1hfQ3OKntnXj7dX17TNLAIexcN4wBr43tKg4y179kuOZdZNFJdUYRU4JTASAXnYDvSMwoZHLlFpRmX7xLWN9XxNHKqJ0jyotjm9RtJVuODbuzdKbUT/r72T+ZcjCbfTXV2bfI/go5Bo6kX/fLuqYJ9CYfdQ5iLKTjlgaDZ8Ad/XRy6NQEAAA=="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/12OQU/DMAyFf8vuqWHtxH1DQnCi6rhPbhqKaZtUtbOqivLfUVIhIU7v87Of7RLKpyM8HnDlQndDMVIL4SqoB9UYdn7RRuHKt9BtFifXtRA+sB2Nev60GaIacWo7hPDirRZyNrX+cm2WiZjJ2agIJwiN2/NZazeS3vJcpqi4uiGzEYZzEsUVXLwejFyQjcKZehSz4nYvIbyKzOeZUjxJKq+CfV6/Q7Ia52WnNyumX/D3tX9lnotR5bspTrZP/ruX2UtU9SZfzj5UcCzhdPhmomLxVmgy0Oz6A+JIM5xPAQAA"
    },
    "Metadata": {
     "aws:cdk:path": "PlantDexStack/CDKMetadata/Default"
@@ -252,6 +321,11 @@
      "PlantDexHttpApi85035D0A",
      "ApiEndpoint"
     ]
+   }
+  },
+  "PlantDexCacheTableName": {
+   "Value": {
+    "Ref": "PlantDexCacheTableC12F6F1C"
    }
   }
  },

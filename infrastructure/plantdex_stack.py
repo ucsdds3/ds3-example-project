@@ -4,8 +4,10 @@ from aws_cdk import (
     Stack,
     Duration,
     CfnOutput,
+    RemovalPolicy,
     aws_lambda as lambda_,
     aws_secretsmanager as secretsmanager,
+    aws_dynamodb as dynamodb,
 )
 from aws_cdk.aws_apigatewayv2 import (
     HttpApi,
@@ -48,6 +50,18 @@ class PlantDexStack(Stack):
             "plantdex/trefle-token",
         )
 
+        cache_table = dynamodb.Table(
+            self,
+            "PlantDexCacheTable",
+            partition_key=dynamodb.Attribute(
+                name="cache_key",
+                type=dynamodb.AttributeType.STRING,
+            ),
+            billing_mode=dynamodb.BillingMode.PAY_PER_REQUEST,
+            time_to_live_attribute="expires_at",
+            removal_policy=RemovalPolicy.DESTROY,
+        )
+
         # Lambda function that powers the `/similar` API route.
         similar_plants_fn = lambda_.Function(
             self,
@@ -58,14 +72,15 @@ class PlantDexStack(Stack):
             timeout=Duration.seconds(30),
             memory_size=512,
             environment={
-                # Store only the secret name in the Lambda environment.
-                # The actual token is stored securely in Secrets Manager.
                 "TREFLE_SECRET_NAME": "plantdex/trefle-token",
+                "CACHE_TABLE_NAME": cache_table.table_name,
+                "CACHE_TTL_SECONDS": "86400",
             },
         )
 
         # Grant Lambda permission to read the Trefle token secret.
         trefle_secret.grant_read(similar_plants_fn)
+        cache_table.grant_read_write_data(similar_plants_fn)
 
         # Public HTTP API for the PlantDex backend.
         api = HttpApi(
@@ -99,4 +114,10 @@ class PlantDexStack(Stack):
             self,
             "PlantDexApiUrl",
             value=api.api_endpoint,
+        )
+
+        CfnOutput(
+            self,
+            "PlantDexCacheTableName",
+            value=cache_table.table_name,
         )
