@@ -1,6 +1,18 @@
+# Python
+.venv/
 venv/
 __pycache__/
-.ipynb_checkpoints/
 *.pyc
+.ipynb_checkpoints/
+
+# Environment / OS
 .env
 .DS_Store
+
+# AWS CDK
+cdk.out/
+**/cdk.out/
+
+# Virtual environments anywhere in repo
+**/.venv/
+**/venv/
