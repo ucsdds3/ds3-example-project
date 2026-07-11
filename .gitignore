@@ -1,6 +1,38 @@
+# Python virtual environments
+.venv/
 venv/
+env/
+*.venv/
+
+# Python artifacts
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
 .ipynb_checkpoints/
-*.pyc
+
+# Environment and secrets
 .env
+.env.*
+*.env
+
+# Local editor/runtime files
 .DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Infrastructure / build outputs
+cdk.out/
+.infra/
+.dist/
+build/
+dist/
+coverage/
+htmlcov/
+
+# Test / cache outputs
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

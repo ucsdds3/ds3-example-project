@@ -20,3 +20,9 @@ python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
+
+PlantDex API Base URL:
+https://lyot4yhfu8.execute-api.us-west-2.amazonaws.com
+
+Similarity endpoint:
+GET /similar?query=tomato&max_results=3&image_only=true
