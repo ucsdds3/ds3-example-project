@@ -100,11 +100,22 @@ class PlantDexStack(Stack):
         )
 
         # GET /similar
-        #
-        # Example:
-        # /similar?query=blueberry&max_results=10&image_only=true
         api.add_routes(
             path="/similar",
+            methods=[HttpMethod.GET],
+            integration=integration,
+        )
+
+        # GET /search
+        api.add_routes(
+            path="/search",
+            methods=[HttpMethod.GET],
+            integration=integration,
+        )
+
+        # GET /plants/{slug}
+        api.add_routes(
+            path="/plants/{slug}",
             methods=[HttpMethod.GET],
             integration=integration,
         )
